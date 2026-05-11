@@ -2,7 +2,7 @@
 
 # Progress:
 
-'- 5/11/2026: Start the project'
+- 5/11/2026: Start the project
 
 # Name: Question Randomizer Web App
 
