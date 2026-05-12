@@ -2,7 +2,8 @@
 
 # Progress:
 
-- 5/11/2026: Start the project
+- 5/11/2026: Start the project.
+- 5/12/2026: Fully work app, did some testing.
 
 # Name: Question Randomizer Web App
 
