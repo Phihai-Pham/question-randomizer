@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Question Randomizer";
+}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg p-4">
+
+        <h1 class="text-center mb-4">
+            Question Randomizer
+        </h1>
+
+        <form asp-controller="Quiz"
+              asp-action="Upload"
+              method="post"
+              enctype="multipart/form-data">
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Upload .docx or .pdf
+                </label>
+
+                <input type="file"
+                       name="file"
+                       class="form-control"
+                       required />
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Number of Questions
+                </label>
+
+                <select class="form-select"
+                        id="questionSelect">
+
+                    <option value="1">1</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="-1">All</option>
+                    <option value="custom">Custom</option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-3"
+                 id="customDiv"
+                 style="display:none;">
+
+                <label class="form-label">
+                    Enter Custom Amount
+                </label>
+
+                <input type="number"
+                       class="form-control"
+                       id="customInput"
+                       min="1"
+                       placeholder="Example: 7">
+
+            </div>
+
+            <input type="hidden"
+                   name="questionCount"
+                   id="questionCount"
+                   value="1" />
+
+            <button class="btn btn-primary w-100">
+                Start Quiz
+            </button>
+
+        </form>
+        <script>
+
+            const select =
+                document.getElementById("questionSelect");
+
+            const customDiv =
+                document.getElementById("customDiv");
+
+            const customInput =
+                document.getElementById("customInput");
+
+            const finalInput =
+                document.getElementById("finalQuestionCount");
+
+            select.addEventListener("change", function () {
+
+                if (this.value === "custom")
+                {
+                    customDiv.style.display = "block";
+
+                    finalInput.value =
+                        customInput.value || 1;
+                }
+                else
+                {
+                    customDiv.style.display = "none";
+
+                    finalInput.value = this.value;
+                }
+            });
+
+            customInput.addEventListener("input", function () {
+
+                finalInput.value = this.value;
+
+            });
+
+        </script>
+    </div>
+
+</div>

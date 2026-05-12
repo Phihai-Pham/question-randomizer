@@ -1,0 +1,30 @@
+﻿@model QuestionRandomizerApp.Models.QAItem
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg p-4">
+
+        <h3>@Model.Question</h3>
+
+        <form asp-action="SaveAnswer"
+              method="post">
+
+            <input type="hidden"
+                   name="index"
+                   value="@ViewBag.Index" />
+
+            <textarea class="form-control mt-3"
+                      rows="6"
+                      name="userAnswer"
+                      required>
+            </textarea>
+
+            <button class="btn btn-success mt-3">
+                Next Question
+            </button>
+
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+﻿@model List<QuestionRandomizerApp.Models.UserAnswer>
+
+<div class="container mt-5">
+
+    <h1 class="mb-4">
+        Quiz Results
+    </h1>
+
+    @foreach (var item in Model)
+    {
+        <div class="card mb-4 shadow">
+
+            <div class="card-body">
+
+                <h5>@item.Question</h5>
+
+                <hr />
+
+                <p>
+                    <strong>Your Answer:</strong>
+                </p>
+
+                <p>@item.UserResponse</p>
+
+                <p>
+                    <strong>Correct Answer:</strong>
+                </p>
+
+                <p>@item.CorrectAnswer</p>
+
+            </div>
+
+        </div>
+    }
+
+    <a href="/"
+       class="btn btn-primary">
+        Start Again
+    </a>
+
+</div>
